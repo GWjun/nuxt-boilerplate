@@ -1,8 +1,8 @@
 <template>
   <div>
-    <h2>Main Page</h2>
+    <h2 class="text-2xl font-semibold">Main Page</h2>
     <div>Count: {{ counter.count }}</div>
-    <button @click="counter.increment">add count</button>
+    <Button @click="counter.increment">add count</Button>
   </div>
 </template>
 

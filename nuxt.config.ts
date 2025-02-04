@@ -5,7 +5,14 @@ export default defineNuxtConfig({
   typescript: {
     typeCheck: true,
   },
-  modules: ['@pinia/nuxt', '@nuxt/eslint', '@nuxt/image', '@vueuse/nuxt'],
+  modules: [
+    '@pinia/nuxt',
+    '@nuxt/eslint',
+    '@nuxt/image',
+    '@vueuse/nuxt',
+    '@nuxtjs/tailwindcss',
+    'shadcn-nuxt',
+  ],
 
   // SSG config
   nitro: {
@@ -20,5 +27,10 @@ export default defineNuxtConfig({
   },
   components: {
     dirs: [],
+  },
+
+  shadcn: {
+    prefix: '',
+    componentDir: './components/_common',
   },
 })
