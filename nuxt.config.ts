@@ -5,5 +5,5 @@ export default defineNuxtConfig({
   typescript: {
     typeCheck: true,
   },
-  modules: ['@nuxt/eslint', '@pinia/nuxt'],
+  modules: ['@pinia/nuxt', '@nuxt/eslint', '@nuxt/image', '@vueuse/nuxt'],
 })
