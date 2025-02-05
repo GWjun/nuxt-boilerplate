@@ -11,5 +11,5 @@
 <script setup lang="ts">
 import { useGetTodos } from '~/queries/todos/useGetTodos'
 
-const { data: todos } = useGetTodos()
+const { data: todos } = await useGetTodos()
 </script>

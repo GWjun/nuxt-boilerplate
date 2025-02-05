@@ -18,7 +18,7 @@ This starter includes the following key modules:
 
 Enable type-checking at build or development time,
 
-```json
+```ts
 export default defineNuxtConfig({
   typescript: {
     typeCheck: true,
@@ -36,7 +36,7 @@ This means you will need to import components and functions manually.
 
 However, core Vue/Nuxt features like `ref` and `defineStore` are still auto-imported and available.
 
-```json
+```ts
 export default defineNuxtConfig({
   imports: {
     scan: false,
@@ -45,6 +45,17 @@ export default defineNuxtConfig({
     dirs: [],
   },
 })
+```
+
+<br/>
+
+## Custom Fetcher
+
+You can use a custom Fetcher class that wraps around `useFetch`.
+
+```ts
+const fetcher = new Fetcher('/todos')
+const { data, status } = await fetcher.get<Todo[]>('') // GET /api/todos
 ```
 
 <br/>
