@@ -6,4 +6,12 @@ export default defineNuxtConfig({
     typeCheck: true,
   },
   modules: ['@pinia/nuxt', '@nuxt/eslint', '@nuxt/image', '@vueuse/nuxt'],
+
+  // disable auto import
+  imports: {
+    scan: false,
+  },
+  components: {
+    dirs: [],
+  },
 })

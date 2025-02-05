@@ -1,75 +1,82 @@
-# Nuxt Minimal Starter
+# Nuxt 3 Custom Boilerplate
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Refer to the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) for more information.
+
+
+
+## Key Modules
+
+This starter includes the following key modules:
+
+*   `pinia`
+*   `vueuse`
+*   `@nuxt/image`
+
+<br/>
+
+## Type Checking
+
+Enable type-checking at build or development time,
+
+```json
+export default defineNuxtConfig({
+  typescript: {
+    typeCheck: true,
+  }
+})
+```
+
+<br/>
+
+## Disable Auto Imports
+
+Auto imports are partially disabled in this starter due to issues with tracking and refactoring. 
+
+This means you will need to import components and functions manually.
+
+However, core Vue/Nuxt features like `ref` and `defineStore` are still auto-imported and available.
+
+```json
+export default defineNuxtConfig({
+  imports: {
+    scan: false,
+  },
+  components: {
+    dirs: [],
+  },
+})
+```
+
+<br/>
 
 ## Setup
 
-Make sure to install dependencies:
+Install the dependencies:
 
 ```bash
-# npm
-npm install
-
-# pnpm
 pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
-## Development Server
+### Development Server
 
-Start the development server on `http://localhost:3000`:
+Start the development server at `http://localhost:3000`:
 
 ```bash
-# npm
-npm run dev
-
-# pnpm
 pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+### Production
 
 Build the application for production:
 
 ```bash
-# npm
-npm run build
-
-# pnpm
 pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
 ```
 
-Locally preview production build:
+Preview the production build locally:
 
 ```bash
-# npm
-npm run preview
-
-# pnpm
 pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+See the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more info.
