@@ -1,16 +1,10 @@
-import Fetcher from '~/queries/Fetcher'
-
-export interface Todo {
-  id: number
-  title: string
-  completed: boolean
-}
+import { useAPI } from '~/composables/useAPI'
+import type { Todo } from '~/queries/types/todos'
 
 export async function useGetTodos() {
-  const fetcher = new Fetcher('/todos')
-  const { data, status } = await fetcher.get<Todo[]>('')
+  const { data, ...rest } = await useAPI<Todo[]>('/todos')
 
-  if (status.value === 'error') throw new Error()
+  if (rest.status.value === 'error') throw new Error()
 
-  return { data }
+  return { data, ...rest }
 }

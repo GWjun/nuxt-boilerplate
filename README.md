@@ -2,15 +2,13 @@
 
 Refer to the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) for more information.
 
-
-
 ## Key Modules
 
 This starter includes the following key modules:
 
-*   `pinia`
-*   `vueuse`
-*   `@nuxt/image`
+- `pinia`
+- `vueuse`
+- `@nuxt/image`
 
 <br/>
 
@@ -22,7 +20,7 @@ Enable type-checking at build or development time,
 export default defineNuxtConfig({
   typescript: {
     typeCheck: true,
-  }
+  },
 })
 ```
 
@@ -30,7 +28,7 @@ export default defineNuxtConfig({
 
 ## Disable Auto Imports
 
-Auto imports are partially disabled in this starter due to issues with tracking and refactoring. 
+Auto imports are partially disabled in this starter due to issues with tracking and refactoring.
 
 This means you will need to import components and functions manually.
 
@@ -49,14 +47,27 @@ export default defineNuxtConfig({
 
 <br/>
 
-## Custom Fetcher
+## Custom API function
 
-You can use a custom Fetcher class that wraps around `useFetch`.
+You can use the `$api` function, which is a wrapper around `$fetch`. 
+
+Currently, it's configured with a baseURL of '/api'.
 
 ```ts
-const fetcher = new Fetcher('/todos')
-const { data, status } = await fetcher.get<Todo[]>('') // GET /api/todos
+const { $api } = useNuxtApp()
+
+await $api<Todo>('/todos', {
+  method: 'POST',
+  body: newTodo,
+})
 ```
+
+You can also use `useAPI`, a wrapper function for useFetch that utilizes `$api`.
+
+```ts
+const { data, ...rest } = await useAPI<Todo[]>('/todos')
+```
+
 
 <br/>
 

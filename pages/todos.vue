@@ -5,11 +5,29 @@
         {{ todo.title }}
       </div>
     </div>
+
+    <input v-model="newTodo.title" placeholder="new todo item" />
+    <button @click="addTodo">add</button>
   </div>
 </template>
 
 <script setup lang="ts">
-import { useGetTodos } from '~/queries/todos/useGetTodos'
+  import { useGetTodos } from '~/queries/todos/useGetTodos'
+  import { requestPostTodos } from '~/queries/todos/requestPostTodos'
 
-const { data: todos } = await useGetTodos()
+  const { data: todos, refresh } = await useGetTodos()
+
+  const newTodo = ref({
+    title: '',
+    completed: false,
+  })
+
+  const addTodo = async () => {
+    if (!newTodo.value.title.trim()) return
+
+    await requestPostTodos(newTodo.value)
+
+    await refresh()
+    newTodo.value.title = ''
+  }
 </script>
