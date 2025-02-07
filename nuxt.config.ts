@@ -7,11 +7,8 @@ export default defineNuxtConfig({
   },
   modules: ['@pinia/nuxt', '@nuxt/eslint', '@nuxt/image', '@vueuse/nuxt'],
 
-  // SSG config
-  nitro: {
-    prerender: {
-      routes: [],
-    },
+  routeRules: {
+    '/**': { isr: 60 },
   },
 
   // disable auto import
